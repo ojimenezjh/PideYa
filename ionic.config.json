@@ -1,0 +1,7 @@
+{
+  "name": "NFCPrueba",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
