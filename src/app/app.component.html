@@ -1,3 +1,65 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+        <ion-menu side="start" menuId="first" contentId="content1">
+                <ion-header>
+                  <ion-toolbar>
+                    <ion-title>Navigate</ion-title>
+                  </ion-toolbar>
+                </ion-header>
+                <ion-content>
+                  <ion-list class="accordion-list">
+                  <!-- First Level-->
+                 <!--  <ion-item button (click)="toggle()">
+                    <ion-icon item-left name="chevron-forward-outline" *ngIf="cards.length <= 0"></ion-icon>
+                    <ion-icon item-left name="chevron-down-outline" *ngIf="cards.length > 0"></ion-icon>
+                  <ion-list-header no-lines>
+                    <h4>Menús</h4>
+                  </ion-list-header>
+                </ion-item>
+                  <ion-list id="Menús" *ngFor="let card of cards">
+                  <ion-menu-toggle auto-hide="true">
+                    <ion-item [routerLink]="['/cards']" routerDirection="forward"> -->
+                        <!-- <ion-icon slot="start"></ion-icon> -->
+                        <!-- <ion-avatar slot ="start">
+                          <img src="{{card.imagen}}" alt="{{card.nombre}}">
+                        </ion-avatar>
+                           {{card.nombre}} 
+                    </ion-item>
+                  </ion-menu-toggle>
+                  </ion-list> -->
+                  <!-- Second Level -->
+                  <ion-menu-toggle auto-hide="true">                  
+                  <ion-item button (click)="emitData(0)" routerDirection="forward">
+                    <ion-icon item-left name="color-filter-outline"></ion-icon>
+                  <ion-list-header no-lines>
+                    <h4>Todos los productos</h4>
+                  </ion-list-header>
+                </ion-item>
+              </ion-menu-toggle>
+                  <ion-item button (click)="toggle()">
+                    <ion-icon item-left name="chevron-forward-outline" *ngIf="cards.length <= 0"></ion-icon>
+                    <ion-icon item-left name="chevron-down-outline" *ngIf="cards.length > 0"></ion-icon>
+                  <ion-list-header no-lines>
+                    <h4>Cartas</h4>
+                  </ion-list-header>
+                </ion-item>
+                  <ion-list id="Cartas" *ngFor="let card of cards">
+                  <ion-menu-toggle auto-hide="true">
+                    <ion-item (click)="emitData(this.card.id_carta)" routerDirection="forward">
+                        <!-- <ion-icon slot="start"></ion-icon> -->
+                        <ion-avatar slot ="start">
+                          <img src="{{card.imagen}}" alt="{{card.nombre}}">
+                        </ion-avatar>
+                           {{card.nombre}}
+                    </ion-item>
+                  </ion-menu-toggle>
+                  </ion-list>
+                </ion-list>
+                </ion-content>
+              </ion-menu>
+               <ion-header>
+           <!-- <app-navigation *ngIf="isLoggedIn$ | async"></app-navigation> -->
+        </ion-header>  
+             
+        <ion-router-outlet id="content1" [ngClass]="{'contenedor' : isLoggedIn$ | async}"></ion-router-outlet>
+
 </ion-app>

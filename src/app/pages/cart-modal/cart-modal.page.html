@@ -1,0 +1,66 @@
+<ion-content fullscreen>
+ 
+  <div class="ion-text-end">
+    <ion-button (click)="close()" fill="clear" color="dark">
+      <ion-icon name="close" slot="start"></ion-icon>
+    </ion-button>
+  </div>
+ 
+  <div class="ion-padding">
+ 
+    <ion-list>
+      <ion-item *ngFor="let cartDetail of cartDetails" class="ion-text-wrap">
+   
+      <ion-col>
+        <ion-row>
+        <ion-label text-wrap>
+         
+          <b>{{ cartDetail.producto }}</b>
+      
+        </ion-label>  
+      </ion-row>
+        <ion-row *ngIf="cartDetail.comentario.length == 0">
+          <ion-button color="primary" fill="outline" (click)="comment(this.cartDetail.id_detalles_pedidos)">
+            <ion-icon color="primary" name="add-outline" slot="icon-only" slot="start"></ion-icon>
+           Comentario
+          </ion-button> 
+        </ion-row>
+        <ion-row *ngIf="cartDetail.comentario.length > 0">
+          <ion-button color="primary" fill="clear" (click)="comment(this.cartDetail.id_detalles_pedidos)">
+            <ion-icon color="primary" name="pencil-outline" slot="icon-only" slot="start"></ion-icon>   
+            <p *ngIf="cartDetail.comentario.length > 10">{{cartDetail.comentario.substring(0,10)}}...</p> 
+            <p *ngIf="cartDetail.comentario.length <= 10">{{cartDetail.comentario}}</p>     
+          </ion-button> 
+
+        </ion-row>
+      </ion-col>
+         
+             {{ cartDetail.precio +" €" }}
+
+             <ion-button color="medium" fill="clear" (click)="removeProduct(this.cartDetail.id_detalles_pedidos)">
+              <ion-icon color="danger" name="close-outline" slot="icon-only" slot="end"></ion-icon>
+            </ion-button>
+
+      </ion-item>
+     
+    </ion-list>
+ 
+    
+  </div>
+ 
+</ion-content>
+
+<ion-item>
+  <ion-label>
+
+        Total:
+      </ion-label>
+      <ion-col size="4" class="ion-text-end">
+        {{ getTotal()+" €" }}
+      </ion-col>
+
+</ion-item>
+
+<ion-button expand="full" (click)="checkout()">
+  Checkout
+</ion-button>

@@ -24,3 +24,23 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+
+// FUENTE
+
+*{
+    font-family: 'Montserrat', sans-serif;
+}
+
+// ALERT
+
+.redtext .alert-wrapper {
+    button.alert-button.accept-button{
+        color: darkgreen !important;
+    }
+    button.alert-button.cancel-button{
+        color: red !important;
+    }
+
+  }
+

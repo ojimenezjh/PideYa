@@ -1,0 +1,11 @@
+/* .contenedor {
+  margin-left: 100px;
+} */
+
+/* RESPONSIVE BARRA */
+
+@media only screen and (max-width: 600px) {
+  .contenedor{
+    margin-left: 0px;
+  }
+}

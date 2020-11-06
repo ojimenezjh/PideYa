@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+       
+      <ion-menu-button></ion-menu-button>
+ 
+      </ion-buttons>
+    
+      <ion-item class="clogo">
+        <ion-avatar slot="end">
+          <img alt="Dinkey Logo" src="{{logoCorp}}"/> 
+        </ion-avatar>
+      <ion-title> 
+       {{nombreCorp}}
+      </ion-title>
+
+      </ion-item>
+   
+  </ion-toolbar>
+</ion-header> 
+
+
+  <ion-content  class="limit-drag"> 
+    <ion-searchbar *ngIf="searchBarOn" debounce="400" [(ngModel)]="this.product.producto" (ionChange)="searchChanged(this.product.producto)">
+    </ion-searchbar>
+
+    <ion-fab vertical="bottom" horizontal="start" slot="fixed">
+      <ion-fab-button>
+        <ion-icon name="chevron-up-outline" class="options-icon"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-list side="top">
+        <ion-fab-button>
+          <ion-icon name="hand-left-outline"></ion-icon>
+        </ion-fab-button>
+        <ion-fab-button>
+          <ion-icon name="hand-left-outline"></ion-icon>
+        </ion-fab-button>
+      </ion-fab-list>
+          </ion-fab> 
+
+  <ion-fab  class="ion-fab-button-1" vertical="bottom" horizontal="end" slot="fixed">
+<ion-fab-button class="ion-fab-button-1" cdkDragBoundary=".limit-drag" cdkDrag (click)="viewModalCart()" #cart>
+  <div class="cart-length">{{ countCartProducts }}</div>
+  <ion-icon name="cart" class="cart-icon"></ion-icon>
+</ion-fab-button>
+    </ion-fab> 
+
+    <ion-list>
+      <ion-item (click)="viewModal(this.product.id_producto)" button *ngFor="let product of products">
+<ion-avatar slot ="start">
+  <img src="{{product.imagen}}" alt="{{product.producto}}">
+</ion-avatar>
+  <ion-label text-wrap>
+  {{product.producto}} 
+  <h3>{{product.descripcion}}</h3>
+  
+  </ion-label>
+  <p><small>{{product.precio}} €</small></p>
+      </ion-item>
+    </ion-list>
+
+  </ion-content>

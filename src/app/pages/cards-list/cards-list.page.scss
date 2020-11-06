@@ -1,0 +1,40 @@
+.ion-fab-button-1{
+    height: 70px;
+    width: 70px;
+}
+
+.cart-icon {
+    font-size: 50px;
+}
+
+.options-icon {
+    font-size: 30px;
+}
+
+.cart-length{
+    color: var(--ion-color-primary);
+    position: absolute;
+    top: 22px;
+    left: 25px;
+    font-weight: 600;
+    font-size: 1em;
+    min-width: 25px;
+    z-index: 10;
+}
+
+.limit-drag {
+    width: 100%;
+    height: 100%;
+    
+  }
+
+  .clogo {
+    align-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .logoempresa {
+    width: 40px;
+    height: 40px;
+  }

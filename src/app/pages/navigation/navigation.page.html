@@ -1,0 +1,56 @@
+
+<ion-content>
+
+  <div>
+
+  <nav>
+    
+    <div class="cuadrologo" *ngFor="let corp of corps">
+      <div class="clogo">
+        <img class="logoempresa"
+        alt="Dinkey Logo"
+        src="{{corp.logo}}"/>
+      </div>
+
+      <div class="cnombre">
+        <p class="nombreempresa">{{corp.name}}</p>
+      </div>
+    </div>
+
+    <ion-button *ngIf="isProfileAdm$ | async" class="botones noripple" expand="full" fill="solid" color="light">
+      <img class="imgfuncion"
+      alt="Stats"
+      src="./assets/button_stats.png"/>
+    </ion-button>
+
+    <ion-button class="botones noripple" expand="full" fill="solid" color="light">
+    <img class="imgfuncion"
+    alt="Menus"
+    src="./assets/button_menu.png"/>
+    </ion-button>
+
+    <ion-button [routerLink]="['/cards']" class="botones noripple" expand="full" fill="solid" color="light">
+      <img class="imgfuncion"
+      alt="Menus"
+      src="./assets/button_carta.png"/>
+      </ion-button>
+
+    <ion-button class="botones noripple" expand="full" fill="solid" color="light">
+      <img class="imgfuncion"
+      alt="Offers"
+      src="./assets/button_offers.png"/>
+    </ion-button>
+    
+    <ion-button [routerLink]="['/register']" class="botones noripple" expand="full" fill="solid" color="light">
+      <img class="imgopciones"
+      alt="Settings"
+      src="./assets/settings.png"/>
+    </ion-button>
+
+    <ion-button (click)="onLogout()" [routerLink]="['/login']" class="botones noripple" expand="full" fill="solid" color="light">
+      <ion-icon name="exit-outline"></ion-icon>
+    </ion-button>
+ 
+  </nav>
+</div>
+</ion-content>

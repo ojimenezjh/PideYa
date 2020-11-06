@@ -1,0 +1,30 @@
+
+   <ion-grid>
+  <ion-row>
+    <ion-col>
+      <div class="ion-text-end">
+        <ion-button (click)="closeModal()" fill="clear" color="dark">
+          <ion-icon name="close" slot="start"></ion-icon>
+        </ion-button>
+      </div>
+  </ion-col>
+  </ion-row>
+  <ion-card-content>
+  <img src="{{product.imagen}}"/>
+  <ion-card-header>
+    <ion-card-title>{{product.producto}}</ion-card-title>
+    <ion-card-subtitle>{{product.precio}} €</ion-card-subtitle>
+ </ion-card-header>
+  <ion-card-content>{{product.descripcion}}</ion-card-content>
+  
+  </ion-card-content>
+  
+</ion-grid>
+
+<ion-button expand="block" color="success" fill="outline" (click)="addProductToCart()">
+  Añadir al pedido
+  <ion-icon name="add"></ion-icon>
+</ion-button> 
+
+
+
