@@ -38,12 +38,12 @@
       </ion-fab-list>
           </ion-fab> 
 
-  <ion-fab  class="ion-fab-button-1" vertical="bottom" horizontal="end" slot="fixed">
+<!--   <ion-fab  class="ion-fab-button-1" vertical="bottom" horizontal="end" slot="fixed">
 <ion-fab-button class="ion-fab-button-1" cdkDragBoundary=".limit-drag" cdkDrag (click)="viewModalCart()" #cart>
   <div class="cart-length">{{ countCartProducts }}</div>
   <ion-icon name="cart" class="cart-icon"></ion-icon>
 </ion-fab-button>
-    </ion-fab> 
+    </ion-fab>  -->
 
     <ion-list>
       <ion-item (click)="viewModal(this.product.id_producto)" button *ngFor="let product of products">

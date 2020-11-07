@@ -121,3 +121,18 @@ nav {
   margin: 0;
   margin-right: 30px;
 }
+
+.cart-length{
+/*   color: var(--ion-color-primary);
+  position: absolute;
+  top: 22px;
+  left: 25px; */
+  font-weight: 600;
+  font-size: 1em;
+  min-width: 18px;
+  z-index: 10;
+}
+
+.cart-icon {
+  font-size: 35px;
+}

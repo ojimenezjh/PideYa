@@ -1,7 +1,22 @@
 
-<ion-content>
+  <ion-tabs>
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button tab="schedule">
+        <ion-icon name="filter-outline"></ion-icon>
+      </ion-tab-button>
+  
+      <ion-tab-button tab="about">
+        <ion-icon name="hand-left-outline"></ion-icon>
+      </ion-tab-button>
 
-  <div>
+        <ion-tab-button (click)="viewModalCart()" #cart>
+          <ion-icon name="cart"></ion-icon>
+          <ion-badge>{{ countCartProducts }}</ion-badge>
+        </ion-tab-button>
+
+    </ion-tab-bar>
+  </ion-tabs>
+<!--   <div>
 
   <nav>
     
@@ -52,5 +67,5 @@
     </ion-button>
  
   </nav>
-</div>
-</ion-content>
+</div> -->
+

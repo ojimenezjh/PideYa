@@ -65,9 +65,9 @@ export class CardsListPage implements OnInit {
      this.id_carta = id_carta
      this.getDependingOnCart();
     })
-      this.cartModal.subscriber$.subscribe((countCartProducts:Number) => {
+/*       this.cartModal.subscriber$.subscribe((countCartProducts:Number) => {
         this.countCartProducts = countCartProducts;       
-      })   
+      })    */
       this.login.subscriber$.subscribe((corp: Corp) => {
         this.logoCorp = corp.logo;  
         this.nombreCorp = corp.name;   
@@ -128,22 +128,6 @@ export class CardsListPage implements OnInit {
       }
      
     }); console.log(id_producto)
-    modal.onWillDismiss().then((data) => {
-      this.getDependingOnCart();
-    });
-
-    return await modal.present();
-
-  }
-
-  async viewModalCart(){
-    
-    const modal = await this.modalController.create({
-      component: CartModalPage,
-      cssClass: 'cart-modal'
-      
-     
-    }); 
     modal.onWillDismiss().then((data) => {
       this.getDependingOnCart();
     });

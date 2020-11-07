@@ -52,7 +52,8 @@ import { LoginPage } from './pages/auth/login/login.page';
     ProductService,
     AuthService,
     CartModalPage,
-    LoginPage
+    LoginPage,
+    CardsListPage
   ],
   bootstrap: [AppComponent]
 })

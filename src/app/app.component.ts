@@ -45,11 +45,14 @@ export class AppComponent {
       this.splashScreen.hide();
     });
   }
-  isLoggedIn$: Observable<boolean>;                  // {1}
+  isLoggedIn$: Observable<boolean>;  
+  isMesaOk$: Observable<boolean>;                // {1}
 
   ngOnInit() {
     
-    this.isLoggedIn$ = this.authService.isLoggedIn; // {2}
+    this.isLoggedIn$ = this.authService.isLoggedIn;
+    this.isMesaOk$ = this.authService.isMesaOk; 
+                                                    // {2}
   }
 
   onLogout(){

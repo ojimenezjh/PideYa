@@ -57,9 +57,9 @@
                 </ion-content>
               </ion-menu>
                <ion-header>
-           <!-- <app-navigation *ngIf="isLoggedIn$ | async"></app-navigation> -->
         </ion-header>  
              
         <ion-router-outlet id="content1" [ngClass]="{'contenedor' : isLoggedIn$ | async}"></ion-router-outlet>
+        <app-navigation *ngIf="(isLoggedIn$ | async) && (isMesaOk$ | async)"></app-navigation> 
 
 </ion-app>
