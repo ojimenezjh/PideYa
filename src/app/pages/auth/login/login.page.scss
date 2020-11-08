@@ -13,10 +13,14 @@
 }*/
 
 
-.login{
+.ios .login{
     align-items: center;
     margin-top: 30%;
+}
 
+.md .login{
+    align-items: center;
+    margin-top: 10%;
 }
 
 .txt{
@@ -25,8 +29,19 @@
     text-align: center;
 }
 
-ion-header{
+.ios ion-header{
     margin-top: 100px;
+}
+
+.md ion-header{
+    position: relative;
+    text-align: center;
+    align-content: center;
+    margin-top: 50px;
+    .md .img{
+    width: 60%;
+    height: 60%;
+    }
 }
 
 

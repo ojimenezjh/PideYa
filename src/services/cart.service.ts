@@ -1,27 +1,26 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
-import { CartProduct } from '../models/Cart/CartProduct';
-import { CartDetail } from '../models/Cart/CartDetail';
-import { Observable } from 'rxjs';
+import { Injectable } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+import { CartProduct } from "../models/Cart/CartProduct";
+import { CartDetail } from "../models/Cart/CartDetail";
+import { Observable } from "rxjs";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class CartService {
+  API_URI = "http://82.223.128.240:3000/api";
 
-  API_URI = 'http://82.223.128.240:3000/api';
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getCart() {
-    return this.http.get<CartDetail[]>(`${this.API_URI}/cart`); 
+    return this.http.get<CartDetail[]>(`${this.API_URI}/cart`);
   }
 
   /* getCard(id: Number) {
     return this.http.get<Card>(`${this.API_URI}/cards/${id}`);
   } */
 
-/*   searchCard(nombre: String) {
+  /*   searchCard(nombre: String) {
     return this.http.get<Card[]>(`${this.API_URI}/cards/name/${nombre}`);
   } */
 
@@ -34,7 +33,9 @@ export class CartService {
   }
 
   commentProduct(id_detalles_pedidos: Number, comentario: CartDetail) {
-    return this.http.put<CartDetail>(`${this.API_URI}/cart/${id_detalles_pedidos}`, comentario);
+    return this.http.put<CartDetail>(
+      `${this.API_URI}/cart/${id_detalles_pedidos}`,
+      comentario
+    );
   }
-
 }

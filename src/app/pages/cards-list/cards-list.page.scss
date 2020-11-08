@@ -1,68 +1,81 @@
-.ion-fab-button-1{
-    height: 70px;
-    width: 70px;
+.ion-fab-button-1 {
+  height: 70px;
+  width: 70px;
 }
 
 .cart-icon {
-    font-size: 50px;
+  font-size: 50px;
 }
 
 .options-icon {
-    font-size: 30px;
+  font-size: 30px;
 }
 
-.cart-length{
-    color: var(--ion-color-primary);
-    position: absolute;
-    top: 22px;
-    left: 25px;
-    font-weight: 600;
-    font-size: 1em;
-    min-width: 25px;
-    z-index: 10;
+.cart-length {
+  color: var(--ion-color-primary);
+  position: absolute;
+  top: 22px;
+  left: 25px;
+  font-weight: 600;
+  font-size: 1em;
+  min-width: 25px;
+  z-index: 10;
 }
 
 .limit-drag {
-    width: 100%;
-    height: 100%;
-    
-  }
+  width: 100%;
+  height: 100%;
+}
 
+.ios ion-segment {
+  width: 100%;
+}
 
-  .ios ion-segment{
-    width: 100%;
-    
-  }
-
-  ion-card{
+ion-card {
+  z-index: 1;
+  height: 230px;
+  position: relative;
+  text-align: left;
+  align-items: center;
+  align-content: center;
+  width: 100%;
+  .img {
+    z-index: 2;
     height: 230px;
-    position: relative;
-    text-align: center;
-    align-items: center;
-    align-content: center;
-    .img{
-      height: 230px;
-      vertical-align: baseline;
-      width:100%;
-    }
-
-  }
-
-  .card-title {
-    position: absolute;
-    top: 36%;
-    font-size: 2.0em;
+    vertical-align: baseline;
     width: 100%;
-    font-weight: bold;
-    color: #fff;
-    text-shadow: black 0.1em 0.1em 0.2em
   }
+}
 
-  .card-subtitle {
-    font-size: 1.5em;
-    position: absolute;
-    top: 52%;
-    width: 100%;
-    color: #fff;
-    text-shadow: black 0.1em 0.1em 0.2em
+.card-title {
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  font-size: 2em;
+  width: 100%;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: black 0.1em 0.1em 0.2em;
+}
+
+.card-subtitle {
+  font-size: 1.5em;
+  position: absolute;
+  text-align: center;
+  bottom: 3%;
+  width: 100%;
+  color: #fff;
+  text-shadow: black 0.1em 0.1em 0.2em;
+}
+
+ion-fab {
+  bottom: 3%;
+  right: 3%;
+  position: absolute;
+  z-index: 3;
+
+  ion-fab-button {
+    --color: rgb(87, 158, 240);
+    --background: white;
   }
+}

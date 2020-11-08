@@ -1,18 +1,17 @@
 <ion-app>
-        <ion-menu side="start" menuId="first" contentId="content1">
-                <ion-header>
-                  
-             <ion-item lines="none">
-             <ion-avatar slot="end">
-              <img alt="Dinkey Logo" src="{{logoCorp}}"/> 
-              </ion-avatar>
-               <h4>{{nombreCorp}}</h4> 
-             </ion-item>
-                </ion-header>
-                <ion-content>
-                  <ion-list class="accordion-list">
-                  <!-- First Level-->
-                 <!--  <ion-item button (click)="toggle()">
+  <ion-menu side="start" menuId="first" contentId="content1">
+    <ion-header>
+      <ion-item>
+        <ion-avatar slot="end">
+          <img alt="Logo" src="{{ logoCorp }}" />
+        </ion-avatar>
+        <h4>{{ nombreCorp }}</h4>
+      </ion-item>
+    </ion-header>
+    <ion-content>
+      <ion-list class="accordion-list">
+        <!-- First Level-->
+        <!--  <ion-item button (click)="toggle()">
                     <ion-icon item-left name="chevron-forward-outline" *ngIf="cards.length <= 0"></ion-icon>
                     <ion-icon item-left name="chevron-down-outline" *ngIf="cards.length > 0"></ion-icon>
                   <ion-list-header no-lines>
@@ -22,48 +21,67 @@
                   <ion-list id="Menús" *ngFor="let card of cards">
                   <ion-menu-toggle auto-hide="true">
                     <ion-item [routerLink]="['/cards']" routerDirection="forward"> -->
-                        <!-- <ion-icon slot="start"></ion-icon> -->
-                        <!-- <ion-avatar slot ="start">
+        <!-- <ion-icon slot="start"></ion-icon> -->
+        <!-- <ion-avatar slot ="start">
                           <img src="{{card.imagen}}" alt="{{card.nombre}}">
                         </ion-avatar>
                            {{card.nombre}} 
                     </ion-item>
                   </ion-menu-toggle>
                   </ion-list> -->
-                  <!-- Second Level -->
-                  <ion-menu-toggle auto-hide="true">                  
-                  <ion-item button (click)="emitData(0)" routerDirection="forward">
-                    <ion-icon item-left name="color-filter-outline"></ion-icon>
-                  <ion-list-header no-lines>
-                    <h4>Todos los productos</h4>
-                  </ion-list-header>
-                </ion-item>
-              </ion-menu-toggle>
-                  <ion-item button (click)="toggle()">
-                    <ion-icon item-left name="chevron-forward-outline" *ngIf="cards.length <= 0"></ion-icon>
-                    <ion-icon item-left name="chevron-down-outline" *ngIf="cards.length > 0"></ion-icon>
-                  <ion-list-header no-lines>
-                    <h4>Cartas</h4>
-                  </ion-list-header>
-                </ion-item>
-                  <ion-list id="Cartas" *ngFor="let card of cards">
-                  <ion-menu-toggle auto-hide="true">
-                    <ion-item (click)="emitData(this.card.id_carta)" routerDirection="forward">
-                        <!-- <ion-icon slot="start"></ion-icon> -->
-                        <ion-avatar slot ="start">
-                          <img src="{{card.imagen}}" alt="{{card.nombre}}">
-                        </ion-avatar>
-                           {{card.nombre}}
-                    </ion-item>
-                  </ion-menu-toggle>
-                  </ion-list>
-                </ion-list>
-                </ion-content>
-              </ion-menu>
-               <ion-header>
-        </ion-header>  
-             
-        <ion-router-outlet id="content1" [ngClass]="{'contenedor' : isLoggedIn$ | async}"></ion-router-outlet>
-        <app-navigation *ngIf="(isLoggedIn$ | async) && (isMesaOk$ | async)"></app-navigation> 
+        <!-- Second Level -->
+        <ion-menu-toggle auto-hide="true">
+          <ion-item
+            detail="false"
+            button
+            (click)="emitData(0)"
+            routerDirection="forward"
+          >
+            <ion-icon item-left name="color-filter-outline"></ion-icon>
+            <ion-list-header no-lines>
+              <h4>Todos los productos</h4>
+            </ion-list-header>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-item detail="false" button (click)="toggle()">
+          <ion-icon
+            item-left
+            name="chevron-forward-outline"
+            *ngIf="cards.length <= 0"
+          ></ion-icon>
+          <ion-icon
+            item-left
+            name="chevron-down-outline"
+            *ngIf="cards.length > 0"
+          ></ion-icon>
+          <ion-list-header no-lines>
+            <h4>Cartas</h4>
+          </ion-list-header>
+        </ion-item>
+        <ion-list detail="false" id="Cartas" *ngFor="let card of cards">
+          <ion-menu-toggle auto-hide="true">
+            <ion-item
+              (click)="emitData(this.card.id_carta)"
+              routerDirection="forward">
+            
+              <!-- <ion-icon slot="start"></ion-icon> -->
+              <ion-avatar slot="start">
+                <img src="{{ card.imagen }}" alt="{{ card.nombre }}" />
+              </ion-avatar>
+              {{ card.nombre }}
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  <ion-header> </ion-header>
 
+  <ion-router-outlet
+    id="content1"
+    [ngClass]="{ contenedor: isLoggedIn$ | async }"
+  ></ion-router-outlet>
+  <app-navigation
+    *ngIf="(isLoggedIn$ | async) && (isMesaOk$ | async)"
+  ></app-navigation>
 </ion-app>

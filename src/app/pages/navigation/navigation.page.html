@@ -1,26 +1,22 @@
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button (click)="presentPopover($event)">
+      <ion-icon name="filter-outline"></ion-icon>
+      <ion-label>Filtros</ion-label>
+    </ion-tab-button>
 
-  
-  <ion-tabs>
-  
-    <ion-tab-bar slot="bottom">
-      <ion-tab-button (click)="presentPopover($event)"> 
-        <ion-icon name="filter-outline"></ion-icon>
-        <ion-label>Filtros</ion-label>
-      </ion-tab-button>
-  
-      <ion-tab-button tab="about">
-        <ion-icon name="hand-left-outline"></ion-icon>
-        <ion-label>Camarero</ion-label>
-      </ion-tab-button>
+    <ion-tab-button tab="about">
+      <ion-icon name="hand-left-outline"></ion-icon>
+      <ion-label>Camarero</ion-label>
+    </ion-tab-button>
 
-        <ion-tab-button (click)="viewModalCart()" #cart>
-          <ion-icon name="cart"></ion-icon>
-          <ion-badge>{{ countCartProducts }}</ion-badge>
-          <ion-label>Pedido</ion-label>
-        </ion-tab-button>
-
-    </ion-tab-bar>
-  </ion-tabs>
+    <ion-tab-button (click)="viewModalCart()" #cart>
+      <ion-icon name="cart"></ion-icon>
+      <ion-badge>{{ countCartProducts }}</ion-badge>
+      <ion-label>Pedido</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>
 <!--   <div>
 
   <nav>
@@ -73,4 +69,3 @@
  
   </nav>
 </div> -->
-

@@ -1,19 +1,18 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
-import { Card } from '../models/Card';
-import { Observable } from 'rxjs';
+import { Injectable } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+import { Card } from "../models/Card";
+import { Observable } from "rxjs";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class CardsService {
+  API_URI = "http://82.223.128.240:3000/api";
 
-  API_URI = 'http://82.223.128.240:3000/api';
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getCards() {
-    return this.http.get<Card[]>(`${this.API_URI}/cards`); 
+    return this.http.get<Card[]>(`${this.API_URI}/cards`);
   }
 
   getCard(id: Number) {
@@ -28,12 +27,11 @@ export class CardsService {
     return this.http.delete(`${this.API_URI}/cards/${id}`);
   }
 
-  saveCard(card : Card) {
+  saveCard(card: Card) {
     return this.http.post(`${this.API_URI}/cards`, card);
   }
 
   updateCard(id: String | Number, updatedCard: Card): Observable<Card> {
     return this.http.put<Card>(`${this.API_URI}/cards/${id}`, updatedCard);
   }
-
 }

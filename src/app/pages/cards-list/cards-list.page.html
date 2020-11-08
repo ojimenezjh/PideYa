@@ -1,23 +1,24 @@
 <ion-header>
-  <ion-toolbar >
-      <ion-buttons slot="start">
-       
+  <ion-toolbar>
+    <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
- 
-      </ion-buttons>
+    </ion-buttons>
 
-      <ion-segment color="primary" (ionChange)="segmentChanged($event)" value="General">
-        <ion-segment-button class="segment-btn" value="General">
-          <ion-label>General</ion-label>
-        </ion-segment-button>
-        <ion-segment-button value="Visual">
-          <ion-label>Visual</ion-label>
-        </ion-segment-button>
-      </ion-segment>
+    <ion-segment
+      color="primary"
+      (ionChange)="segmentChanged($event)"
+      value="General"
+    >
+      <ion-segment-button class="segment-btn" value="General">
+        <ion-label>General</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="Visual">
+        <ion-label>Visual</ion-label>
+      </ion-segment-button>
+    </ion-segment>
 
-        <!-- <ion-toggle slot="end"></ion-toggle> -->
+    <!-- <ion-toggle slot="end"></ion-toggle> -->
 
-      
     <!-- 
       <ion-item class="clogo">
         <ion-avatar slot="end">
@@ -27,14 +28,17 @@
        {{nombreCorp}}
       </ion-title>
       </ion-item> -->
-   
   </ion-toolbar>
-</ion-header> 
+</ion-header>
 
-
-  <ion-content  class="limit-drag"> 
-    <ion-searchbar *ngIf="searchBarOn" debounce="400" [(ngModel)]="this.product.producto" (ionChange)="searchChanged(this.product.producto)">
-    </ion-searchbar>
+<ion-content class="limit-drag">
+  <ion-searchbar
+    *ngIf="searchBarOn"
+    debounce="400"
+    [(ngModel)]="this.product.producto"
+    (ionChange)="searchChanged(this.product.producto)"
+  >
+  </ion-searchbar>
 
   <!--   <ion-fab vertical="bottom" horizontal="start" slot="fixed">
       <ion-fab-button>
@@ -50,33 +54,44 @@
       </ion-fab-list>
           </ion-fab>  -->
 
-<!--   <ion-fab  class="ion-fab-button-1" vertical="bottom" horizontal="end" slot="fixed">
+  <!--   <ion-fab  class="ion-fab-button-1" vertical="bottom" horizontal="end" slot="fixed">
 <ion-fab-button class="ion-fab-button-1" cdkDragBoundary=".limit-drag" cdkDrag (click)="viewModalCart()" #cart>
   <div class="cart-length">{{ countCartProducts }}</div>
   <ion-icon name="cart" class="cart-icon"></ion-icon>
 </ion-fab-button>
     </ion-fab>  -->
 
-    <ion-list *ngIf="tipoVista=='General'">
-      <ion-item (click)="viewModal(this.product.id_producto)" button *ngFor="let product of products">
-<ion-avatar slot ="start">
-  <img src="{{product.imagen}}" alt="{{product.producto}}">
-</ion-avatar>
-  <ion-label text-wrap>
-  {{product.producto}} 
-  <h3>{{product.descripcion}}</h3>
-  
-  </ion-label>
-  <p><small>{{product.precio}} €</small></p>
-      </ion-item>
-    </ion-list> 
+  <ion-list *ngIf="tipoVista=='General'">
+    <ion-item
+      detail="false"
+      (click)="viewModal(this.product.id_producto)"
+      button
+      *ngFor="let product of products"
+    >
+      <ion-avatar slot="start">
+        <img src="{{product.imagen}}" alt="{{product.producto}}" />
+      </ion-avatar>
+      <ion-label text-wrap>
+        {{product.producto}}
+        <h3>{{product.descripcion}}</h3>
+      </ion-label>
+      <p><small>{{product.precio}} €</small></p>
+    </ion-item>
+  </ion-list>
 
-    <ion-list *ngIf="tipoVista=='Visual'">
-      <ion-card (click)="viewModal(this.product.id_producto)" button *ngFor="let product of products">
-        <img class="img" src="{{product.imagen}}" alt="{{product.producto}}">
-         <div class="card-title">{{product.producto}} </div>
-        <h3 class="card-subtitle">{{product.descripcion}}</h3>
-</ion-card>
-    </ion-list>
+  <ion-list *ngIf="tipoVista=='Visual'">
+    <ion-item lines="none" *ngFor="let product of products">
+      <ion-fab>
+        <ion-fab-button [style.pointerEvents]="'none'"
+          ><div>{{product.precio}} €</div></ion-fab-button
+        >
+      </ion-fab>
+      <ion-card (click)="viewModal(this.product.id_producto)" button>
+        <img class="img" src="{{product.imagen}}" alt="{{product.producto}}" />
 
-  </ion-content>
+        <div class="card-title">{{product.producto}}</div>
+        <!-- <h3 class="card-subtitle">{{product.descripcion}}</h3> -->
+      </ion-card>
+    </ion-item>
+  </ion-list>
+</ion-content>
