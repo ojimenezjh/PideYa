@@ -10,8 +10,6 @@ import { Product } from 'src/models/Product';
 import { AppComponent } from 'src/app/app.component';
 import { CartProduct } from 'src/models/Cart/CartProduct';
 import { CartModalPage } from '../cart-modal/cart-modal.page'
-import { LoginPage } from '../auth/login/login.page';
-import { Corp } from 'src/models/auth/Corp';
 import { AuthService } from 'src/services/auth.service';
 
 
@@ -28,6 +26,8 @@ export class CardsListPage implements OnInit {
   logoCorp;
 
   id_carta;
+
+  tipoVista: string = "General";
 
   countCartProducts: Number;
 
@@ -56,11 +56,11 @@ export class CardsListPage implements OnInit {
     comentario: ''
   };
   
-  constructor(private productService: ProductService, private login: LoginPage, private modalController: ModalController, private appComponent: AppComponent, public cartModal: CartModalPage, private authService: AuthService) { }
+  constructor(private productService: ProductService, private modalController: ModalController, private appComponent: AppComponent, public cartModal: CartModalPage, private authService: AuthService) { }
 
   ngOnInit() {
     this.getProducts();
-    this.login.getImg();
+    //this.login.getImg();
     this.appComponent.subscriber$.subscribe((id_carta:Number) => {
      this.id_carta = id_carta
      this.getDependingOnCart();
@@ -68,13 +68,16 @@ export class CardsListPage implements OnInit {
 /*       this.cartModal.subscriber$.subscribe((countCartProducts:Number) => {
         this.countCartProducts = countCartProducts;       
       })    */
-      this.login.subscriber$.subscribe((corp: Corp) => {
+ /*      this.login.subscriber$.subscribe((corp: Corp) => {
         this.logoCorp = corp.logo;  
         this.nombreCorp = corp.name;   
-      })   
+      })   */ 
   }
 
- 
+  segmentChanged(ev: any){
+    this.tipoVista = ev.detail.value;
+    console.log('Segment changed', ev.detail.value);
+  }
 
   getProducts(){
     this.productService.getProducts().subscribe(

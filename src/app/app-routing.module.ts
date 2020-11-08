@@ -39,6 +39,11 @@ const routes: Routes = [
     path: 'mesa',
     loadChildren: () => import('./pages/auth/mesa/mesa.module').then( m => m.MesaPageModule)
   },
+  {
+    path: 'filter-popover',
+    loadChildren: () => import('./pages/navigation/filter-popover/filter-popover.module').then( m => m.FilterPopoverPageModule)
+  },
+
 
  /*  {
     path: 'cart-modal',

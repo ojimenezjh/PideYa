@@ -1,6 +1,7 @@
 import { Component, OnInit, SimpleChanges, Input } from '@angular/core';
 import { Observable } from 'rxjs';
-
+import { PopoverController } from '@ionic/angular';
+import { FilterPopoverPage } from '../navigation/filter-popover/filter-popover.page';
 import { ModalController } from '@ionic/angular';
 import { CardsListPage } from '../cards-list/cards-list.page';
 import { CartModalPage } from '../cart-modal/cart-modal.page'
@@ -32,7 +33,9 @@ export class NavigationPage implements OnInit {
 
   isMesaOk$: Observable<boolean>;
 
-  constructor(private authService: AuthService, private modalController: ModalController, private cardsList: CardsListPage, private cartModal: CartModalPage) { }
+  toggleFabList: boolean = false;
+
+  constructor(private authService: AuthService, private modalController: ModalController, private cardsList: CardsListPage, private cartModal: CartModalPage, public popoverController: PopoverController) { }
 
   ngOnInit() {
     //this.getImg();
@@ -70,6 +73,25 @@ export class NavigationPage implements OnInit {
 
     return await modal.present();
 
+  }
+
+  
+  async presentPopover(ev: any) {
+    const popover = await this.popoverController.create({
+      component: FilterPopoverPage,
+      cssClass: 'my-custom-class',
+      event: ev,
+      translucent: true
+    });
+    return await popover.present();
+  }
+
+  activateFabList(){
+    if (this.toggleFabList == false){
+    return this.toggleFabList = true;
+  }
+    else if (this.toggleFabList == true)
+    return this.toggleFabList = false;
   }
 
     

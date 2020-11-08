@@ -7,7 +7,11 @@ const routes: Routes = [
   {
     path: '',
     component: NavigationPage
+  },  {
+    path: 'filter-popover',
+    loadChildren: () => import('./filter-popover/filter-popover.module').then( m => m.FilterPopoverPageModule)
   },
+
 
 ];
 

@@ -28,13 +28,41 @@
     
   }
 
-  .clogo {
-    align-content: center;
-    align-items: center;
-    text-align: center;
+
+  .ios ion-segment{
+    width: 100%;
+    
   }
 
-  .logoempresa {
-    width: 40px;
-    height: 40px;
+  ion-card{
+    height: 230px;
+    position: relative;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    .img{
+      height: 230px;
+      vertical-align: baseline;
+      width:100%;
+    }
+
+  }
+
+  .card-title {
+    position: absolute;
+    top: 36%;
+    font-size: 2.0em;
+    width: 100%;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: black 0.1em 0.1em 0.2em
+  }
+
+  .card-subtitle {
+    font-size: 1.5em;
+    position: absolute;
+    top: 52%;
+    width: 100%;
+    color: #fff;
+    text-shadow: black 0.1em 0.1em 0.2em
   }

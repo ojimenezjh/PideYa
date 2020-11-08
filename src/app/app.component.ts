@@ -8,7 +8,8 @@ import { CardsService } from '../services/cards.service'
 import { Card } from 'src/models/Card';
 import { ModalController } from '@ionic/angular';
 import { CardsListPage } from '../app/pages/cards-list/cards-list.page';
-
+import { LoginPage } from './pages/auth/login/login.page';
+import { Corp } from 'src/models/auth/Corp';
 import { Router } from '@angular/router';
 
 
@@ -35,7 +36,8 @@ export class AppComponent {
     private authService: AuthService,
     private cardsService: CardsService,
     private modalController: ModalController,
-    private router: Router
+    private router: Router,
+    private login: LoginPage
   ) {
     this.initializeApp();
   }
@@ -45,13 +47,20 @@ export class AppComponent {
       this.splashScreen.hide();
     });
   }
+
+  nombreCorp;
+  logoCorp;
   isLoggedIn$: Observable<boolean>;  
   isMesaOk$: Observable<boolean>;                // {1}
 
   ngOnInit() {
-    
+    this.login.getImg();
     this.isLoggedIn$ = this.authService.isLoggedIn;
     this.isMesaOk$ = this.authService.isMesaOk; 
+    this.login.subscriber$.subscribe((corp: Corp) => {
+      this.logoCorp = corp.logo;  
+      this.nombreCorp = corp.name;   
+    })  
                                                     // {2}
   }
 
