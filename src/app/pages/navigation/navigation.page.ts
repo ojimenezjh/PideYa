@@ -74,12 +74,11 @@ export class NavigationPage implements OnInit {
 
     return await modal.present();
   }
-
-  async presentPopover(ev: any) {
+  
+  async presentPopover() {
     const popover = await this.popoverController.create({
       component: FilterPopoverPage,
-      cssClass: "my-custom-class",
-      event: ev,
+      cssClass: "popover",
       translucent: true,
     });
     return await popover.present();
